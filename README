@@ -1,0 +1,19 @@
+web scraper + haiku maker + twitter bot = haiku_ebooks
+
+results of the original version: https://twitter.com/haiku_ebooks
+
+re-writing the code as an exercise in "test-first" principles.
+
+
+GOALS:
+
+1. Be able to get syllable counts for words/strings, 
+analyze strings to see if they can fit into a 5/7/5 format, 
+scan text for instances of haikus,
+save haikus to file.
+
+2. Be able to scrape the web and receive text,
+search that text for haikus or #s of syllables,
+re-scrape the web based on the text/haiku built thus far.
+
+3. Be able to tweet haikus that have been found, at some sort of non-annoying interval (once a day?)

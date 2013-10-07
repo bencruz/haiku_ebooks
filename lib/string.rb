@@ -1,4 +1,4 @@
-#monkey patching strings to know their syllable count
+#monkey patching strings to know their syllable count/haiku-ness
 class String
 
 	def syllable_count
@@ -7,7 +7,6 @@ class String
 
 	def haiku?
 		return false if self.syllable_count != 17
-
 		words = self.split(" ")
 		count = 0
 		until count == 5
@@ -20,10 +19,6 @@ class String
 		end
 		true
 	end
-
-
-
-
 
 end
 

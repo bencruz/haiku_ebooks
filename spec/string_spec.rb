@@ -29,7 +29,8 @@ describe String do
       "i am not a haiku though i am made of seven teen syllables".haiku?.should == false
     end
 
+    it "should know that a string is a haiku even with weird whitespace" do
+      "         this is a       haiku written in order to test that i know haiku  ".haiku?.should == true
+    end
   end
-
-
 end

@@ -13,12 +13,6 @@
 # 		end
 # 	end
 
-# 	#searches twitter and returns a nokogiri document
-# 	def search_twitter
-# 		full_url = @base_url + @current_search_word
-# 		Nokogiri::HTML(open(full_url))
-# 	end
-
 # #FINDS SEARCH WORD + ONE MORE WORD, SO RESULT[1] = new word
 # 	def select_tweet_data(tweet)
 # 	/#{@current_search_word}+\s([a-z]+)/.match(tweet.text)
@@ -26,13 +20,33 @@
 
 class WebScraper
   attr_reader :base_url
+  attr_accessor :search_term
 
   def initialize
     @base_url = "https://twitter.com/search?q="
   end
 
+  #Scrapes a Nokogiri doc
   def scrape
-    Nokogiri::HTML(open(@base_url))
+    Nokogiri::HTML(open(@base_url + @search_term))
+  end
+
+  #Extracts array of raw tweet strings from Noko
+  def tweets
+  	tweets = []
+  	scrape.css('p.tweet-text').each do |tweet|
+  		tweets << tweet.text
+  	end
+  	tweets
+  end
+
+  #filters tweets for potential stanzas/lines
+  def possible_stanzas
+  	tweets.map do |tweet|
+  		x = /#{@search_term}+\s([a-z]+\s)+/.match(tweet)
+  		x[0] unless x.nil?
+  	end.compact
   end
 
 end
+

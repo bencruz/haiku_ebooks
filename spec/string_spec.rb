@@ -14,6 +14,10 @@ describe String do
     it "should handle weird white space" do
       " white      space  ".syllable_count.should == 2
     end
+
+    it "should deal with words that it doesn't know" do
+      "poopies".syllable_count.should == nil
+    end
 	end
 
   describe ".haiku?" do

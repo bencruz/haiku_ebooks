@@ -23,7 +23,8 @@ describe WebScraper do
 
 	specify ".tweets should return an array of tweets" do
     VCR.use_cassette("nokogiri") do 
-      @scraper.tweets.should be_an_instance_of Array
+      x = @scraper.tweets
+      x[0].should be_an_instance_of String
     end
   end
 

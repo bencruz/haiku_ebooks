@@ -23,7 +23,7 @@ class WebScraper
   #filters tweets for potential stanzas/lines
   def possible_stanzas
   	tweets.map do |tweet|
-  		x = /#{@search_term}+\s([a-z]+\s)+/.match(tweet)
+  		x = /#{@search_term}(\s([a-z]+\s)+)/.match(tweet)
   		x[0] unless x.nil?
   	end.compact
   end

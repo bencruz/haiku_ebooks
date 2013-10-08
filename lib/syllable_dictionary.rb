@@ -1,5 +1,5 @@
 #Creates global hash dictionary 
-dict = File.readlines("lib/syllable_dictionary.txt", "r").join.split("\n")
+dict = File.readlines("./lib/syllable_dictionary.txt", "r").join.split("\n")
 SYLLABLE_DICTIONARY = Hash.new
 dict.each do |entry|
 	entry = entry.strip.split(",")

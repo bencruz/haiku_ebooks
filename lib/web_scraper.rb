@@ -1,38 +1,17 @@
-  # @current_search_word = file_name
-  # 
-# #searches a nokogiri document
-# 	def find_tweet
-# 		search_twitter.css('p.tweet-text').each do |tweet|
-# 			next_word = select_tweet_data(tweet)
-# 				next if next_word.nil?
-# 				next if next_word[1].nil?
-# 				next if count_syllables(next_word[1]).nil?
-# 			if syllable_count + count_syllables(next_word[1]) <= @syllable_target
-# 				return next_word[1]
-# 			end
-# 		end
-# 	end
+require "twitter"
+require "tweetstream"
 
-# 	#searches twitter and returns a nokogiri document
-# 	def search_twitter
-# 		full_url = @base_url + @current_search_word
-# 		Nokogiri::HTML(open(full_url))
-# 	end
+Twitter.configure do |config|
+  config.consumer_key = "TWITTER_CONSUMER_KEY"
+  config.consumer_secret = "TWITTER_CONSUMER_SECRET"
+  config.oauth_token = "TWITTER_OAUTH_TOKEN"
+  config.oauth_token_secret = "TWITTER_OAUTH_TOKEN_SECRET"
+end
 
-# #FINDS SEARCH WORD + ONE MORE WORD, SO RESULT[1] = new word
-# 	def select_tweet_data(tweet)
-# 	/#{@current_search_word}+\s([a-z]+)/.match(tweet.text)
-# 	end
-
-class WebScraper
-  attr_reader :base_url
-
-  def initialize
-    @base_url = "https://twitter.com/search?q="
-  end
-
-  def scrape
-    Nokogiri::HTML(open(@base_url))
-  end
-
+TweetStream.configure do |config|
+  config.consumer_key       = "TWITTER_CONSUMER_KEY"
+  config.consumer_secret    = "TWITTER_CONSUMER_SECRET"
+  config.oauth_token        = "TWITTER_OAUTH_TOKEN"
+  config.oauth_token_secret = "TWITTER_OAUTH_TOKEN_SECRET"
+  config.auth_method        = :oauth
 end

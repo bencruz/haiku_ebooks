@@ -2,6 +2,8 @@
 class String
 	def syllable_count
 		self.split(" ").inject(0) { |sum, word|	sum + SYLLABLE_DICTIONARY[word.upcase] }
+  rescue TypeError
+    return nil
 	end
 
 	def haiku?

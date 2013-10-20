@@ -4,8 +4,8 @@ require_relative '../lib/web_scraper.rb'
 
 TweetStream::Client.new.sample do |status|
 	if status.text.haiku?
-    Twitter.update(status.text) 
-    puts status.text
-  end
-  print "."
+		Twitter.retweet(status.id) 
+		puts status.text
+	end
+	print "."
 end

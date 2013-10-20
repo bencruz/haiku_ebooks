@@ -6,6 +6,12 @@ uses a modified version of the CMU pronunciation dictionary for syllable counts
 
 TweetStream creates a tweet stream and Twitter.update(s) whenever it finds a haiku
 
+TO USE:
+
+1. put yr API token thingies into the web_scraper.rb file
+2. ruby Haiku.rb
+3. watch it do its thang
+
 
 todo:
 EITHER

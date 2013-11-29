@@ -1,13 +1,23 @@
-https://twitter.com/haiku_ebooks
+(HAIKU_EBOOKS: THE POETRY ROBOT)[https://twitter.com/haiku_ebooks]
 
-ROBOT THAT SCANS TWITTER FOR TWEETS THAT ARE HAIKUS AND THEN RETWEETS THEM.
+# A ROBOT THAT SCANS TWITTER FOR TWEETS THAT ARE HAIKUS AND THEN RETWEETS THEM.
 
-basically it is a monkey-patch on Strings so that they know whether or not they are haikus (#haiku?)
-
+basically it is a monkey-patch on Strings so that they know whether or not they are haikus (#haiku?).
 uses a modified version of the CMU pronunciation dictionary for syllable counts.
 
-TO USE:
+* You can also use string.rb, syllable_dictionary.txt, and syllable_dictionary.rb 
+* to incorporate String#haiku? and String#syllable_count into something else.
 
-1. put yr API token thingies into the web_scraper.rb file
-2. ruby Haiku.rb
-3. watch it do its thang
+A whole ton of haikus are tweeted all the time...
+by removing these tweets from the tweetstream
+and placing them into an artistic-poetic context,
+it elevates the content of the tweet into something more than itself.
+
+TODO:
+technically a haiku is supposed to refer in some way to the current season, 
+so perhaps including 4 filess filled with words vaguely connected to a season,
+and reject tweets that don't include one of the words listed for that time of year. 
+
+Improve String#haiku? to reject haikus that have odd line breaks. 
+(possibly just make sure that the last word in any line/stanza(?) is not %w(of the then and but...etc.))
+

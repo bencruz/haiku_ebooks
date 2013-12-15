@@ -2,14 +2,14 @@ require 'spec_helper'
 
 describe String do
 
-	describe ".syllable_count" do
-		it "should know it's count" do
-			"alpha".syllable_count.should == 2
-		end
+  describe ".syllable_count" do
+    it "should know it's count" do
+      "alpha".syllable_count.should == 2
+    end
 
-		it "should know the count of multiple words" do
-			"alpha tango bravo nine".syllable_count.should == 7
-		end
+    it "should know the count of multiple words" do
+      "alpha tango bravo nine".syllable_count.should == 7
+    end
 
     it "should handle weird white space" do
       " white      space  ".syllable_count.should == 2
@@ -18,7 +18,7 @@ describe String do
     it "should deal with words that it doesn't know" do
       "poopies".syllable_count.should == nil
     end
-	end
+  end
 
   describe ".haiku?" do
     it "should know that 17 is the number" do

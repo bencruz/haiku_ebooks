@@ -6,19 +6,19 @@ class HaikuFinder
   def self.run_bot
     begin
       TweetStream::Client.new.sample(language: 'en') { |status| return status if status.text.haiku? }
-    rescue 
+    rescue
       sleep 300
       retry
     end
   end
 
   def self.post_tweet(status)
-    Twitter.retweet(status.id) 
+    Twitter.retweet(status.id)
   end
 
 end
 
 loop do
   HaikuFinder.post_tweet(HaikuFinder.run_bot)
-  sleep 6000
+  sleep 900
 end

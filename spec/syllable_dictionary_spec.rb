@@ -7,7 +7,7 @@ describe "SYLLABLE_DICTIONARY" do
   end
 
   it "should return syllable counts" do
-  	SYLLABLE_DICTIONARY["TESTING"].should == 2
+    SYLLABLE_DICTIONARY["TESTING"].should == 2
   end
 
 end

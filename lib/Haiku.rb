@@ -5,7 +5,9 @@ require_relative '../lib/web_scraper.rb'
 class HaikuFinder
   def self.run_bot
     begin
-      TweetStream::Client.new.sample(language: 'en') { |status| return status if status.text.haiku? }
+      TweetStream::Client.new.sample(language: 'en') do |status|
+        return status if status.text.haiku?
+      end
     rescue
       sleep 300
       retry

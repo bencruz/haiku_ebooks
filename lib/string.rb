@@ -15,19 +15,19 @@ class String
   def haiku?
     return false if self.syllable_count != 17
     words = self.split(" ")
+    false_or_words = count_to(5, words)
+    false_or_words = count_to(7, false_or_words) if false_or_words
+    !!false_or_words
+  end
+
+  def count_to(num, words)
     count = 0
-    until count == 5
+    until count == num
       last = words.shift
       count += last.syllable_count
-      return false if count > 5
+      return false if count > num
     end
     return false if BAD_WORDS.include?(last.downcase)
-    until count == 12
-      last = words.shift
-      count += last.syllable_count
-      return false if count > 12
-    end
-    return false if BAD_WORDS.include?(last.downcase)
-    true
+    words
   end
 end

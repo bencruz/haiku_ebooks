@@ -1,8 +1,8 @@
 class String
-  BAD_WORDS = %w(the on or because for with just feel to of getting don't can't
-    won't want feels a with in is lets and it have about what such really i be
-    but stay keep see looks their has take goes all should when it's its then
-    if a he his she her where that were I I'll i'll you up)
+  BAD_WORDS = %w(a about all and be because but can't don't feel feels for
+    getting goes has have he her his i i i'll if in is it it's its just keep
+    lets looks my of on or really see she should stay such take tell that the
+    their then to up want were what when where with won't you)
 
   def syllable_count
     self.split(" ").inject(0) do |sum, word|
@@ -21,13 +21,13 @@ class String
       count += last.syllable_count
       return false if count > 5
     end
-    return false if BAD_WORDS.include?(last)
+    return false if BAD_WORDS.include?(last.downcase)
     until count == 12
       last = words.shift
       count += last.syllable_count
       return false if count > 12
     end
-    return false if BAD_WORDS.include?(last)
+    return false if BAD_WORDS.include?(last.downcase)
     true
   end
 end

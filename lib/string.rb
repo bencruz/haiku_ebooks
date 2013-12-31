@@ -1,8 +1,10 @@
 class String
-  BAD_WORDS = %w(a about all and be because but can't don't feel feels for
-    getting goes has have he her his i i i'll if in is it it's its just keep
-    lets looks my of on or really see she should stay such take tell that the
-    their then to up want were what when where with won't you)
+  BAD_WORDS = %w(a about all and are as at be because but can't do don't dont
+    even feel feels for get getting goes going gonna has have he her his i i'll
+    i'm if im in is it it's its just keep lets like looks make makes me my of
+    on or really say see she should so some stay such take tell that that's
+    thats the their then there theres there's to u up used want wants were what
+    whats when where who will with won't wont would you)
 
   def syllable_count
     self.split(" ").inject(0) do |sum, word|

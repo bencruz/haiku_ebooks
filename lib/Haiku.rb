@@ -21,5 +21,5 @@ end
 
 loop do
   HaikuFinder.post_tweet(HaikuFinder.run_bot)
-  sleep 900
+  sleep 1200
 end

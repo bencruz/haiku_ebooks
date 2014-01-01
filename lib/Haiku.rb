@@ -17,7 +17,6 @@ class HaikuFinder
   def self.post_tweet(status)
     Twitter.retweet(status.id)
   end
-
 end
 
 loop do

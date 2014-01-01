@@ -1,0 +1,1 @@
+haiku: ruby lib/Haiku.rb

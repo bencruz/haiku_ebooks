@@ -1,4 +1,6 @@
-dict = File.readlines("../lib/syllable_dictionary.txt", "r").join.split("\n")
+dict_path = File.expand_path("../syllable_dictionary.txt", __FILE__)
+dict = File.readlines(dict_path, "r").join.split("\n")
+
 SYLLABLE_DICTIONARY = Hash.new
 dict.each do |entry|
   word, syllables = entry.strip.split(",")

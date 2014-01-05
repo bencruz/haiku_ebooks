@@ -1,4 +1,4 @@
-(HAIKU_EBOOKS: THE POETRY ROBOT)[https://twitter.com/haiku_ebooks]
+[HAIKU_EBOOKS: THE POETRY ROBOT](https://twitter.com/haiku_ebooks)
 
 # A ROBOT THAT SCANS TWITTER FOR TWEETS THAT ARE HAIKUS AND THEN RETWEETS THEM.
 

@@ -1,3 +1,5 @@
+require_relative 'syllable_dictionary.rb'
+
 class String
   BAD_WORDS = %w(a about all and are as at be because but can't do don't dont
     even feel feels for get getting goes going gonna has have he her his i i'll

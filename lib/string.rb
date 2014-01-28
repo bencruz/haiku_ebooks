@@ -1,13 +1,14 @@
 require_relative 'syllable_dictionary.rb'
 
 class String
-  BAD_WORDS = %w(a about all an and are as at be because been but can't do
-    don't dont even feel feels for from gave get getting go goes going gonna
-    has have he her his i i'll i'm if im in is it it's its just keep lets like
-    looks make makes me might my no of on or really say see she should so some
-    stay such take tell that that's thats the their then there theres there's
-    to u up used want wants were what whats when where who will with won't wont
-    would you)
+  BAD_WORDS = %w(a about ain't aint all an and anything are as at be because
+    been but can't do don't dont even feel feels for from gave get getting go
+    goes going gonna gonna gotta has have he her his how i i'll i'm if im in
+    is isn't isnt it it's its just keep lets like looks make makes me might
+    must my no not of on or please really say see she should so some stay such
+    take tell that that's thats the their then there there's theres to u up
+    used want wants were what whats when where who whole will with won't wont
+    would yea yeah you)
 
   def syllable_count
     self.split(" ").inject(0) do |sum, word|

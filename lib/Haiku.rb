@@ -31,12 +31,14 @@ class HaikuFinder
   end
 
   def self.process_tweet(tweet)
+    puts "got one!"
     HaikuFinder.post_tweet(tweet)
     HaikuFinder.save_tweet(tweet)
   end
 end
 
 loop do
+  puts "starting search"
   HaikuFinder.process_tweet(HaikuFinder.run_bot)
   sleep 1200
 end

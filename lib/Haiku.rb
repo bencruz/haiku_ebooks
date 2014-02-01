@@ -21,13 +21,9 @@ class HaikuFinder
 
   def self.save_tweet(tweet)
     puts tweet.text
-    split_tweet = tweet.text.split(":")
-    text = split_tweet[1]
-    author = split_tweet[0].split("@")[1]
-
     Haiku.create!(:tweet_id => tweet.id,
-      :author => "@#{author}",
-      :body => text.haikuify,
+      :author => "@#{tweet.user.name}",
+      :body => tweet.text.haikuify,
       :posted_at => tweet.created_at)
   end
 

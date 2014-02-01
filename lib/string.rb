@@ -36,4 +36,24 @@ class String
     return false if BAD_WORDS.include?(last.downcase)
     words
   end
+
+  def haikuify
+    words = self.split(" ")
+    haiku = []
+    count = 0
+    until count == 5
+      word = words.shift
+      count += word.syllable_count
+      haiku << word
+    end
+    haiku << "/"
+    until count == 12
+      word = words.shift
+      count += word.syllable_count
+      haiku << word
+    end
+    haiku << "/"
+    haiku << words
+    haiku.join(" ")
+  end
 end

@@ -30,7 +30,7 @@ class HaikuFinder
       :posted_at => tweet.created_at)
   end
 
-  def process_tweet(tweet)
+  def self.process_tweet(tweet)
     HaikuFinder.post_tweet(tweet)
     HaikuFinder.save_tweet(tweet)
   end

@@ -1,7 +1,7 @@
 require_relative 'string.rb'
 require_relative 'syllable_dictionary.rb'
 require_relative 'web_scraper.rb'
-require_relative 'db_connection.rb'
+require_relative 'db_connect.rb'
 
 class HaikuFinder
   def self.run_bot

@@ -20,6 +20,7 @@ class HaikuFinder
   end
 
   def self.save_tweet(tweet)
+    puts tweet.text
     split_tweet = tweet.text.split(":")
     text = split_tweet[1]
     author = split_tweet[0].split("@")[1]

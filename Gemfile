@@ -5,3 +5,4 @@ gem "tweetstream", "~>2.5.0"
 gem "activerecord"
 gem "pg"
 gem "protected_attributes"
+gem 'friendly_id'

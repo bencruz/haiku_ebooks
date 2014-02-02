@@ -1,6 +1,7 @@
 require 'active_record'
 require 'pg'
 require 'protected_attributes'
+require 'friendly_id'
 
 ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'] || 'postgres://localhost/mydb')
 

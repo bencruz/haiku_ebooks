@@ -22,7 +22,7 @@ class HaikuFinder
   def self.save_tweet(tweet)
     puts tweet.text
     Haiku.create!(:tweet_id => tweet.id,
-      :author => "@#{tweet.user.name}",
+      :author => "@#{tweet.user.screen_name}",
       :body => tweet.text.haikuify,
       :posted_at => tweet.created_at)
   end

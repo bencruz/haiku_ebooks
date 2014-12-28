@@ -21,7 +21,14 @@ class HaikuFinder
 end
 
 loop do
-  puts "starting search"
-  HaikuFinder.post_tweet(HaikuFinder.run_bot)
+  # if rand < 0.75
+  #   puts "starting search"
+  #   HaikuFinder.post_tweet(HaikuFinder.run_bot)
+  # else
+    haikus = Twitter.retweeted_by_me.map do |t|
+      t.text.haikuify.split("/")
+    end
+    Twitter.update "#{haikus.sample[0]}\n#{haikus.sample[1]}\n#{haikus.sample[2]}"
+  # end
   sleep 1200
 end

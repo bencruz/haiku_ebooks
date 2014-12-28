@@ -32,6 +32,11 @@ describe String do
       haiku.haiku?.should == true
     end
 
+    it "should wtf" do
+      haiku = "HELLO ANYONE GOING TO POETRY LIVE NEXT FEB"
+      haiku.haiku?.should == false
+    end
+
     it "should know that a string is not a haiku" do
       not_haiku = "i am not a haiku though i am made of seven teen syllables"
       not_haiku.haiku?.should == false

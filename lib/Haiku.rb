@@ -27,6 +27,8 @@ loop do
   # else
     haikus = Twitter.retweeted_by_me.map do |t|
       begin
+        puts t.text
+        puts t.text.haikuify
         t.text.haikuify.split("/")
       rescue
         nil

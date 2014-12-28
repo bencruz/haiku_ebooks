@@ -29,13 +29,13 @@ loop do
       begin
         puts t.text
         puts t.text.haikuify
-        t.text.haikuify.split("/")
+        t.text.split(":")[1].haikuify.split("/")
       rescue
         nil
       end
     end.compact
     puts haikus
-    Twitter.update "#{haikus.sample[0]}\n#{haikus.sample[1]}\n#{haikus.sample[2]}"
+    Twitter.update "#{haikus.sample[0].capitalize}\n#{haikus.sample[1].capitalize}\n#{haikus.sample[2].capitalize}"
   # end
   sleep 1200
 end

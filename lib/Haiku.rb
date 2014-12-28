@@ -32,6 +32,7 @@ loop do
         nil
       end
     end.compact
+    puts haikus
     Twitter.update "#{haikus.sample[0]}\n#{haikus.sample[1]}\n#{haikus.sample[2]}"
   # end
   sleep 1200

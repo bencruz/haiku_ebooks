@@ -53,5 +53,5 @@ PLATFORMS
 
 DEPENDENCIES
   rspec
-  tweetstream (~> 2.5.0)
-  twitter (~> 4.8.1)
+  tweetstream
+  twitter

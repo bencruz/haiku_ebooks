@@ -1,11 +1,26 @@
 require_relative 'string.rb'
 require_relative 'syllable_dictionary.rb'
-require_relative 'web_scraper.rb'
+
+require "twitter"
+
+client = Twitter::REST::Client.new do |config|
+  config.consumer_key        = "YOUR_CONSUMER_KEY"
+  config.consumer_secret     = "YOUR_CONSUMER_SECRET"
+  config.access_token        = "YOUR_ACCESS_TOKEN"
+  config.access_token_secret = "YOUR_ACCESS_SECRET"
+end
+
+streamy = Twitter::Streaming::Client.new do |config|
+  config.consumer_key        = "YOUR_CONSUMER_KEY"
+  config.consumer_secret     = "YOUR_CONSUMER_SECRET"
+  config.access_token        = "YOUR_ACCESS_TOKEN"
+  config.access_token_secret = "YOUR_ACCESS_SECRET"
+end
 
 class HaikuFinder
   def self.run_bot
     begin
-      TweetStream::Client.new.sample(language: 'en') do |tweet|
+      streamy.sample(language: 'en') do |tweet|
         return tweet if tweet.text.haiku?
       end
     rescue
@@ -16,23 +31,10 @@ class HaikuFinder
 
   def self.post_tweet(tweet)
     puts "got one!"
-    Twitter.retweet(tweet.id)
+    client.retweet(tweet.id)
   end
 end
-#
-# loop do
-  # if rand < 0.75
-    puts "starting search"
-    HaikuFinder.post_tweet(HaikuFinder.run_bot)
-  # else
-  #   haikus = Twitter.retweeted_by_me(count: 100).map do |t|
-  #     begin
-  #       t.text.split(":")[1].haikuify.split("/")
-  #     rescue
-  #       nil
-  #     end
-  #   end.compact
-  #   Twitter.update "#{haikus.sample[0].capitalize}\n#{haikus.sample[1].capitalize}\n#{haikus.sample[2].capitalize}"
-  # end
-  # sleep 1200
-# end
+
+puts "starting search"
+HaikuFinder.post_tweet(HaikuFinder.run_bot)
+
